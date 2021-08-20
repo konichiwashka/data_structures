@@ -7,12 +7,17 @@ def append_to_end(queue, item):
 
 
 def delete_item_in_first_place(queue):
-    queue.pop(0)
+    if len(queue) >= 1:
+        queue.pop(0)
+    else:
+        print("Empty queue")
 
 
 def delete_item_in_last_place(queue):
-    lenght = len(queue) - 1
-    queue.pop(lenght)
+    if len(queue) >= 1:
+        queue.pop()
+    else:
+        print("Empty queue")
 
 
 my_queue = []
