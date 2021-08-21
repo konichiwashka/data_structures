@@ -1,16 +1,17 @@
+def append_to_end(queue, item):
+    queue.append(item)
+
+
+def delete_first_item(queue):
+    if len(queue) >= 1:
+        queue.pop(0)
+    else:
+        print("Empty queue")
+
+
 my_queue = []
-
-
-def append_item(x):
-    my_queue.append(x)
-
-
-def delete(x):
-    for x in range(1, x+1):
-        my_queue.pop(0)
-
-
 for i in range(1, 10):
-    append_item(i)
-delete(3)
+    append_to_end(my_queue, i)
+delete_first_item(my_queue)
+delete_first_item(my_queue)
 print(my_queue)
