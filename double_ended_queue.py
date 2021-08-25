@@ -1,31 +1,33 @@
-def append_to_start(queue, item):
-    queue.insert(0, item)
+class Queue(object):
+    def __init__(self):
+        self.queue = []
+
+    def appending_item_to_end(self, item):
+        self.queue.append(item)
+
+    def appending_to_start(self, item):
+        self.queue.insert(0, item)
+
+    def delete_first_item(self):
+        if len(self.queue) == 0:
+            print("List is empty")
+        else:
+            self.queue.pop(0)
+
+    def delete_last_item(self):
+        if len(self.queue) == 0:
+            print("List is empty")
+        else:
+            self.queue.pop()
 
 
-def append_to_end(queue, item):
-    queue.append(item)
-
-
-def delete_item_in_first_place(queue):
-    if len(queue) >= 1:
-        queue.pop(0)
-    else:
-        print("Empty queue")
-
-
-def delete_item_in_last_place(queue):
-    if len(queue) >= 1:
-        queue.pop()
-    else:
-        print("Empty queue")
-
-
-my_queue = []
-for i in range(1, 5):
-    append_to_end(my_queue, i)
-for z in range(1, 6):
-    append_to_start(my_queue, z*2)
-for i in range(1, 3):
-    delete_item_in_last_place(my_queue)
-delete_item_in_first_place(my_queue)
+my_queue = Queue()
+for i in range(1, 10):
+    my_queue.appending_item_to_end(i)
+for n in range(1, 5):
+    my_queue.appending_to_start(n)
+for z in range(1, 4):
+    my_queue.delete_first_item()
+for x in range(1, 5):
+    my_queue.delete_last_item()
 print(my_queue)
