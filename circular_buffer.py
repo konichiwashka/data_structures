@@ -8,6 +8,7 @@ class Queue(object):
         self.queue[self.pointer_end] = item
         self.pointer_end += 1
         self.pointer_end = self.pointer_end % 9
+        self.pointer_start = self.pointer_end
 
     def delete_item(self):
         if len(self.queue) == 0:
@@ -29,5 +30,6 @@ my_queue.appending_item(200)
 my_queue.appending_item(300)
 my_queue.appending_item(400)
 my_queue.appending_item(500)
+my_queue.appending_item(600)
 my_queue.delete_item()
 print(my_queue)
