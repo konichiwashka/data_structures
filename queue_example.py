@@ -6,10 +6,9 @@ class Queue(object):
         self.queue.append(item)
 
     def delete_item(self):
-        if len(self.queue) == 0:
-            print("List is empty")
-        else:
-            self.queue.pop(0)
+        assert len(self.queue) != 0, 'Empty queue'
+        print(self.queue[0])
+        self.queue = self.queue[:-1]
 
 
 my_queue = Queue()
