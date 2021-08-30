@@ -1,13 +1,13 @@
 class CB(object):
     def __init__(self, capacity):
         self.capacity = capacity
-        self.queue = [None] * capacity
+        self.cb = [None] * capacity
         self.pointer_start = 0
         self.pointer_end = 0
         self.count = 0
 
     def appending_item(self, item):
-        self.queue[self.pointer_end] = item
+        self.cb[self.pointer_end] = item
         self.pointer_end += 1
         self.count += 1
         self.pointer_end = self.pointer_end % self.capacity
@@ -17,16 +17,19 @@ class CB(object):
             self.pointer_start = 0
 
     def delete_item(self):
-        assert len(self.queue) != 0, 'Empty queue'
-        self.queue[self.pointer_start] = None
+        assert len(self.cb) != 0, 'Empty queue'
+        self.cb[self.pointer_start] = None
         self.pointer_start += 1
 
+    def print_out(self):
+        return self.cb
 
-my_queue = CB(9)
-for i in range(1, 10):
-    my_queue.appending_item(i)
-my_queue.delete_item()
+
+my_cb = CB(8)
+for i in range(1, 14):
+    my_cb.appending_item(i)
+my_cb.delete_item()
 for z in range(1, 5):
-    my_queue.appending_item(z*100)
-my_queue.delete_item()
-print(my_queue)
+    my_cb.appending_item(z*100)
+my_cb.delete_item()
+print(my_cb.print_out())
