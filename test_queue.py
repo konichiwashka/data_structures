@@ -7,12 +7,14 @@ import pytest
 
 
 class TestQueueExample(TestCase):
-    def test_appending_funk(self):
+    @pytest.mark.skip
+    def test_appending_funk(self, a):
         test_queue = Queue()
-        for i in range(10):
+        a_count = a
+        for i in range(a_count):
             test_queue.appending_item(i)
         res = test_queue.print_out()
-        assert res == [x for x in range(10)]
+        assert res == [x for x in range(a_count)]
 
     def test_delete_funk(self):
         test_queue = Queue()

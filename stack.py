@@ -10,9 +10,4 @@ class Stack(Queue):
         self.queue = self.queue[:-1]
 
 
-my_queue = Stack()
-for i in range(1, 10):
-    my_queue.appending_item(i)
-my_queue.delete_item()
-my_queue.delete_item()
-print(my_queue)
+

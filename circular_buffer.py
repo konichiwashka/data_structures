@@ -25,11 +25,4 @@ class CB(object):
         return self.cb
 
 
-my_cb = CB(8)
-for i in range(1, 14):
-    my_cb.appending_item(i)
-my_cb.delete_item()
-for z in range(1, 5):
-    my_cb.appending_item(z*100)
-my_cb.delete_item()
-print(my_cb.print_out())
+

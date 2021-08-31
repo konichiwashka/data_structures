@@ -14,9 +14,3 @@ class Queue(object):
         return self.queue
 
 
-my_queue = Queue()
-for i in range(1, 10):
-    my_queue.appending_item(i)
-my_queue.delete_item()
-my_queue.delete_item()
-print(my_queue.print_out())
