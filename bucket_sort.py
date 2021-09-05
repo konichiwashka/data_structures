@@ -21,4 +21,3 @@ def bucket_sort_true(my_list, n):
 
 my_list = [random.randint(1, 50) for x in range(1, 21)]
 bucket_sort_true(my_list, 5)
-dsf
