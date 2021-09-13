@@ -1,22 +1,48 @@
-class Node(object):
+class BinaryTree(object):
     def __init__(self, data):
+        self.data = data
         self.left = None
         self.right = None
-        self.data = data
 
-    def insert_left(self, new_val):
-        if self.left is None:
-            self.left = Node(new_val)
+    def insert(self, data):
+        if data < self.data:
+            if self.left is None:
+                self.left = BinaryTree(data)
+            else:
+                self.left.insert(data)
         else:
-            new_node = Node(new_val)
-            new_node.left = self.left
-            self.left = new_node
+            if self.right is None:
+                self.right = BinaryTree(data)
+            else:
+                self.right.insert(data)
 
-    def insert_right(self, new_val):
-        if self.right is None:
-            self.right = Node(new_val)
+    def search_data(self, data):
+        if self.data == data:
+            return True
         else:
-            new_node = Node(new_val)
-            new_node.right = self.right
-            self.right = new_node
-    
+            if data < self.data:
+                if self.left:
+                    return self.left.search_data(data)
+                else:
+                    return False
+            if data > self.data:
+                if self.right:
+                    return self.right.search_data(data)
+                else:
+                    return False
+
+    def inorder_traverse(self, node):
+        elements_tree = []
+        if node:
+            elements_tree = (self.inorder_traverse(node.left))
+            elements_tree.append(node.data)
+            elements_tree = elements_tree + self.inorder_traverse(node.right)
+        return elements_tree
+
+    def preorder_traverse(self, node):
+        elements_tree = []
+        if node:
+            elements_tree.append(node.data)
+            elements_tree = elements_tree + self.preorder_traverse(node.left)
+            elements_tree = elements_tree + self.preorder_traverse(node.right)
+        return elements_tree

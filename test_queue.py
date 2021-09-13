@@ -3,6 +3,7 @@ from double_ended_queue import Deq
 from queue_example import Queue
 from stack import Stack
 from circular_buffer import CB
+from binary_tree import BinaryTree
 import pytest
 
 
@@ -87,3 +88,25 @@ class TestCB(TestCase):
         test_cb.delete_item()
         res = test_cb.print_out()
         assert res == [9, 10, 11, 12, 13, None, 7, 8]
+
+
+class TestBT(TestCase):
+    def test_binary_tree_search(self):
+        test_tree = BinaryTree(40)
+        elements = [10, 30, 50, 60, 70, 55]
+        for i in elements:
+            test_tree.insert(i)
+        res1 = test_tree.search_data(30)
+        res = test_tree.search_data(100)
+        assert res is False
+        assert res1 is True
+
+    def test_preorder_and_inorder_traverse_tree(self):
+        test_tree = BinaryTree(40)
+        elements = [10, 30, 50, 60, 70, 55]
+        for i in elements:
+            test_tree.insert(i)
+        res1 = test_tree.preorder_traverse(test_tree)
+        res = test_tree.inorder_traverse(test_tree)
+        assert res1 == [40, 10, 30, 50, 60, 55, 70]
+        assert res == [10, 30, 40, 50, 55, 60, 70]
