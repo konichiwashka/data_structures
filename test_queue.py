@@ -4,11 +4,14 @@ from queue_example import Queue
 from stack import Stack
 from circular_buffer import CB
 from binary_tree import BinaryTree
+from bucket_sort import bucket_sort
+from bucket_sort import bucket_sort_alternative_version
 import pytest
+import random
+import time
 
 
 class TestQueueExample(TestCase):
-    @pytest.mark.skip
     def test_appending_funk(self, a):
         test_queue = Queue()
         a_count = a
@@ -110,3 +113,16 @@ class TestBT(TestCase):
         res = test_tree.inorder_traverse(test_tree)
         assert res1 == [40, 10, 30, 50, 60, 55, 70]
         assert res == [10, 30, 40, 50, 55, 60, 70]
+
+
+class Test_bucket_sort_time(TestCase):
+    def test_bucket_sort_time_with_alternative_sort(self):
+        my_list = [random.randint(100, 1000) for x in range(1, 1000)]
+        res = time.time()
+        bucket_sort(my_list, 5)
+        result_sort = (time.time() - res) / 100
+        res1 = time.time()
+        bucket_sort_alternative_version(my_list, 5)
+        result_alternative_sort = (time.time() - res1) / 100
+        assert result_sort < result_alternative_sort
+

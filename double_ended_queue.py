@@ -1,5 +1,4 @@
 from queue_example import Queue
-import time
 
 
 class Deq(Queue):
