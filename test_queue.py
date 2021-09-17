@@ -118,14 +118,16 @@ class TestBT(TestCase):
 class Test_bucket_sort_time(TestCase):
     def test_bucket_sort_time_with_alternative_sort(self):
         res = time.time()
-        for x in range(10):
-            my_list = [random.randint(100, 1000) for x in range(1, 1000)]
+        my_list = [random.randint(100, 1000) for x in range(1, 1000)]
+        count = 100
+        for x in range(count + 1):
             bucket_sort(my_list, 5)
-        result_sort = (time.time() - res) / 100
+        result_sort = (time.time() - res) / count
         res1 = time.time()
-        for x in range(10):
-            my_list = [random.randint(100, 1000) for x in range(1, 1000)]
+        for x in range(count + 1):
             bucket_sort_alternative_version(my_list, 5)
-        result_alternative_sort = (time.time() - res1) / 100
-        assert result_sort < result_alternative_sort
+        result_alternative_sort = (time.time() - res1) / count
+        print(result_sort)
+        print(result_alternative_sort)
+        assert result_sort > result_alternative_sort
 
